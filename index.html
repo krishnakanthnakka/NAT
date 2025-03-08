@@ -210,7 +210,10 @@
               <br>
             <li><b>Novel Task & Evaluation</b>. Recognizing the lack of standardized benchmarks for visually grounded conversations, we propose a new task of <span style="color: #997300;">Grounded Conversation Generation</span> (GCG). Alongside, we introduce a comprehensive evaluation protocol to measure the efficacy of models in this novel setting, filling a significant gap in the literature.</li>
               <br>
-            <li><b>GranD Dataset Creation</b>. To facilitate model training and evaluation, we create <span style="color: #997300;">GranD - Grounding-anything Dataset</span>, a large-scale densely annotated dataset. Developed using an automatic annotation pipeline and verification criteria, it encompasses 7.5M unique concepts grounded in 810M regions. Additionally, we produce <span style="color: #997300;">GranD-f</span>, a high-quality dataset explicitly designed for the GCG task, by re-purposing existing open-source datasets.</li>
+            <li><b>Extensive Evaluation</b>.  We conduct a rigorous evaluation on 41 ImageNet-pretrained models, covering 16 traditional Convolutional networks, 8 Transformers architectures, 17 Hybrid architectures. We also
+evaluate the transferability on nine fine-grained dataset models. We demonstrate that a single neuron-specific adversarial generator achieves over 14% improvement in transferability for cross-modal settings and
+4% improvement in cross-domain settings. Additionally, by leveraging the complementary attack capabilities of NAT’s generators, we show that adversarial transferability can be significantly enhanced with fewer than 10 queries to
+the target model.</li>
           </ol>
         </div>
       </div>

@@ -108,8 +108,146 @@
     background-color: transparent;
   }
 </style>
+
+
 <body>
+
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <img src="images/vita_logo.png" alt="NAT" width="100">
+            <h1 class="title is-1 publication-title">NAT: <span class="is-size-2"><span class="is-size-1">P</span>ixel <span class="is-size-1">G</span>rounding <span class="is-size-1">L</span>arge <span class="is-size-1">M</span>ultimodal <span class="is-size-1">M</span>odel <br> [CVPR 2024]</span></h1>
+            <div class="is-size-5 publication-authors">
+              <!-- First Group of 3 Authors -->
+              <div class="author-group">
+                  <span class="author-block">
+                      <a href="https://scholar.google.com/citations?hl=en&user=g_21RKoAAAAJ" style="color:#f68946;font-weight:normal;">Krishna Kanth Nakka<sup>*</sup></a>,
+                  </span>
+                  <span class="author-block">
+                      <a href="https://scholar.google.com/citations?hl=en&user=UIhXQ64AAAAJ" style="color:#008AD7;font-weight:normal;">Alexandre Alahi<sup>*</sup></a>,
+                  </span>
+              </div>
+
+        
+          </div>
+            <div class="is-size-5 publication-authors">
+              VITA Lab, EPFL, Switzerland,<br>
+            </div>
+      
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <span class="link-block">
+                  <a href="https://arxiv.org/abs/2311.03356" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                    </span>
+                    <span>arXiv</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="https://github.com/mbzuai-oryx/groundingLMM" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="https://glamm.mbzuai-oryx.ngrok.app/" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="far fa-images"></i>
+                    </span>
+                    <span>Demo</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="https://grounding-anything.com" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-database"></i>
+                    </span>
+                    <span>Dataset</span>
+                  </a>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="hero teaser">
+    <div class="container is-max-desktop">
+      <div class="hero-body">
+        <h4 class="subtitle has-text-justified">
+        Teaser
+        </h4>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+
+  <section class="section"  style="background-color:#efeff081">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-six-fifths">
+        <h2 class="title is-3">🔥Highlights</h2>
+        <div class="content has-text-justified">
+          <ol type="1">
+            <li><b>GLaMM Introduction</b>. We present the <span style="color: #997300;">Grounding Large Multimodal Model (GLaMM)</span>, the first-of-its-kind model capable of generating natural language responses that are seamlessly integrated with object segmentation masks. Unlike existing models, GLaMM accommodates both textual and optional visual prompts, facilitating enhanced multimodal user interaction. </li>
+              <br>
+            <li><b>Novel Task & Evaluation</b>. Recognizing the lack of standardized benchmarks for visually grounded conversations, we propose a new task of <span style="color: #997300;">Grounded Conversation Generation</span> (GCG). Alongside, we introduce a comprehensive evaluation protocol to measure the efficacy of models in this novel setting, filling a significant gap in the literature.</li>
+              <br>
+            <li><b>GranD Dataset Creation</b>. To facilitate model training and evaluation, we create <span style="color: #997300;">GranD - Grounding-anything Dataset</span>, a large-scale densely annotated dataset. Developed using an automatic annotation pipeline and verification criteria, it encompasses 7.5M unique concepts grounded in 810M regions. Additionally, we produce <span style="color: #997300;">GranD-f</span>, a high-quality dataset explicitly designed for the GCG task, by re-purposing existing open-source datasets.</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">Citation</h2>
+      <pre><code>
+  @InProceedings{Nakka_2025_WACV,
+    author    = {Nakka, Krishna Kanth and Alahi, Alexandre},
+    title     = {NAT: Learning to Attack Neurons for Enhanced Adversarial Transferability},
+    booktitle = {Proceedings of the Winter Conference on Applications of Computer Vision (WACV)},
+    month     = {February},
+    year      = {2025},
+    pages     = {7582-7593}
+}
+  </code></pre>
+    </div>
+  </section>
+  <section class="section" id="Acknowledgement">
+    <div class="container is-max-desktop content">
+      <h2 class="title">Acknowledgement</h2>
+      <p>
+        This website is adapted from <a
+        href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>, licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+        Commons Attribution-ShareAlike 4.0 International License</a>.  We are thankful to LLaVA, GPT4ROI, and LISA for releasing their models and code as open-source contributions.
+      </p>
+    </div>
+  </section>
+
 </body>
+
 
 </html>
 

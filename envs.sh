@@ -7,7 +7,6 @@ export PYTHONPATH=$DIR/CDA/cda:$PYTHONPATH
 export PYTHONPATH=$DIR/cda/pipeline:$PYTHONPATH
 export PYTHONPATH=$DIR/cda/pipeline/sparse_autoencoder:$PYTHONPATH
 
-pip install ray==2.9.2
 # pip install pyarrow==14.0.2
 # pip install pandas==2.1.4
 # pip install scikit-learn==1.3.0

@@ -18,7 +18,7 @@ For more details, refer to the main paper and supplementary at [CVF Website](htt
 
 The code has been tested on following packages:
 ```bash
-source envs.sh
+conda env create -f environment.yaml
 ```
 
 ## Dataset

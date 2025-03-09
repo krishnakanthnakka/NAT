@@ -1,4 +1,4 @@
-### NAT: Learning to Attack Neurons for Enhanced Adversarial Transferability (WACV 2025)
+# NAT: Learning to Attack Neurons for Enhanced Adversarial Transferability (WACV 2025)
 Krishna Kanth Nakka and Alexandre Alahi
 
 
@@ -12,7 +12,7 @@ The generation of transferable adversarial perturbations typically involves trai
 and 4% in cross-domain settings.
 
 
-For more details, refer to the main paper at [CVF Website](https://openaccess.thecvf.com/content/WACV2025/html/Nakka_NAT_Learning_to_Attack_Neurons_for_Enhanced_Adversarial_Transferability_WACV_2025_paper.html).
+For more details, refer to the main paper and supplementary at [CVF Website](https://openaccess.thecvf.com/content/WACV2025/html/Nakka_NAT_Learning_to_Attack_Neurons_for_Enhanced_Adversarial_Transferability_WACV_2025_paper.html) 
 
 ## Setup
 
@@ -37,9 +37,13 @@ source envs.sh
     python eval.py --nat_attacked_neuron 250
     ```
 
-
+- Please refer to the Table XX in the supplementary for the exact versions of the target models.
 
 ### Training
+
+- For training, we use the LTP repository available and change the loss function to choose the single channel instead of all channels. The modified loss function is available in the file [loss.py](loss.py)
+
+-  For generator, we used a slightly modified architecture removing `reflectionpad` as we found that to be make results non-deterministic even with same seeds.
 
 
 ### Citation

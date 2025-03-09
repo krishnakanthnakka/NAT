@@ -16,7 +16,7 @@ For more details, refer to the main paper and supplementary at [CVF Website](htt
 
 ## Setup
 
-The code has been tested on PyTorch 2.1.0 with CUDA 12.1 and Xformers. To create a ready-to-run environment, use the following command:
+The code has been tested on following packages:
 ```bash
 source envs.sh
 ```
@@ -29,9 +29,9 @@ source envs.sh
 ### Evaluation
 
 
-- We provided the checkpoint for Neuron 250 along with this repo in the releases section. This should reproduce the results of Table 2, 3 and 4 in the main paper with query `k=1`. 
+- WWe have provided the checkpoint for Neuron 250 along with this repository in the releases section. This checkpoint should reproduce the results presented in Tables 2, 3, and 4 of the main paper using the query k=1.
 
-- To run the attack on resnet152, please run the following command,
+- To run the attack on ResNet152, use the following command:
 
     ```python
     python eval.py --nat_attacked_neuron 250
@@ -62,4 +62,4 @@ source envs.sh
 
 ### Acknowledgements
 
-- I would like thank the authors of [CDA](https://arxiv.org/abs/1905.11736) who inspired me to work in this direction during my PhD. 
+- I would like thank the authors of [CDA](https://arxiv.org/abs/1905.11736) who inspired me to work in this direction during my PhD around 2021.  

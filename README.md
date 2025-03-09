@@ -29,7 +29,7 @@ source envs.sh
 ### Evaluation
 
 
-- We provided the checkpoint for Neuron 250 along with this repo in the releases section.
+- We provided the checkpoint for Neuron 250 along with this repo in the releases section. This should reproduce the results of Table 2, 3 and 4 in the main paper with query k=1. 
 
 - To run the attack on resnet152, please run the following command,
 

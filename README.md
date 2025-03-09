@@ -21,6 +21,10 @@ The code has been tested on PyTorch 2.1.0 with CUDA 12.1 and Xformers. To create
 source envs.sh
 ```
 
+## Dataset
+
+- For evaluation, we use subset of 5000 images available at the [data](data/imagenet_val5k.txt) subfolder. This subset is taken from the LTP paper of NeurIPS 2021.
+
 
 ### Evaluation
 

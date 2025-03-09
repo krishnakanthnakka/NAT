@@ -37,16 +37,7 @@ def generator(
     layer = 18
     source_model = "vgg16"
 ) -> torch.nn.Module:
-    """Return a VLAD-BuFF model.
-    Args:
-        pretrained (bool): Whether to load pretrained weights.
-        antiburst (bool): Whether to apply antiburst mechanism.
-        nv_pca (int): Use PCA before clustering and nv aggregation.
-        wpca (bool): Whether to Use post pool WPCA layer.
-        num_pcs (int): Use post pool PCA.
-    Return:
-        model (torch.nn.Module): the model.
-    """
+    
     args = parse_args(antiburst=antiburst, nv_pca=nv_pca, wpca=wpca, num_pcs=num_pcs)
 
     assert args.layer == 18

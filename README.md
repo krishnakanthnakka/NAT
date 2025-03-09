@@ -41,7 +41,7 @@ source envs.sh
 
 ### Training
 
-- For training, we use the LTP repository available and change the loss function to choose the single channel instead of all channels. The modified loss function is available in the file [loss.py](loss.py)
+- For training, we use the [LTP](https://github.com/krishnakanthnakka/Transferable_Perturbations) repository available and change the loss function to choose the single channel instead of all channels. The modified loss function is available in the file [loss.py](loss.py)
 
 -  For generator, we used a slightly modified architecture removing `reflectionpad` as we found that to be make results non-deterministic even with same seeds.
 

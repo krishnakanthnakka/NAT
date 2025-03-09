@@ -42,9 +42,9 @@ generator.cuda()
 ### Evaluation
 
 
-- WWe have provided the checkpoint for Neuron 250 along with this repository in the releases section. This checkpoint should reproduce the results presented in Tables 2, 3, and 4 of the main paper using the query k=1.
+- WWe have provided the checkpoint for `Neuron 250` along with this repository in the releases section. This checkpoint should reproduce the results presented in `Tables 2`, `3`, and `4` of the main paper using the query `k=1`.
 
-- To run the attack on ResNet152, use the following command:
+- To run the attack on `ResNet152`, use the following command:
 
     ```python
     python eval.py --nat_attacked_neuron 250

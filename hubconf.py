@@ -8,7 +8,7 @@ from generator import StableGeneratorResnet
 
 def parse_args(antiburst=False, nv_pca=None, wpca=False, num_pcs=8192):
     parser = argparse.ArgumentParser(
-        description="Eval VPR model",
+        description="Eval NAT generator model",
         formatter_class=argparse.ArgumentDefaultsHelpFormatter,
     )
     parser.add_argument(

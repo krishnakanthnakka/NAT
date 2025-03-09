@@ -31,9 +31,9 @@ def parse_args(antiburst=False, nv_pca=None, wpca=False, num_pcs=8192):
     return args
 
 
-def generator(neuron=250, layer=18, source_model="vgg16") -> torch.nn.Module:
+def generator(neuron=250, layer=18, source_model="vgg16", gen_dropout=0.5) -> torch.nn.Module:
 
-    model = StableGeneratorResnet(gen_dropout=0.0, data_dim="high")
+    model = StableGeneratorResnet(gen_dropout=gen_dropout, data_dim="high")
 
     checkpoint = torch.hub.load_state_dict_from_url(
         f"https://github.com/krishnakanthnakka/NAT/releases/download/checkpoint_neuron_250/0_net_G_neuron.{neuron}.pth"

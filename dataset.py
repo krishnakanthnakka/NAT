@@ -3,13 +3,24 @@ import torch.utils.data
 import numpy as np
 from PIL import Image
 import logging
+
 dir_path = os.path.dirname(os.path.realpath(__file__))
 
 
 class ImageDataset(torch.utils.data.Dataset):
 
-    def __init__(self, data_dir, images_path, split, convolve_image, transform=None, target_transform=None,
-                 keep_difficult=False, is_train=True, data_aug=None):
+    def __init__(
+        self,
+        data_dir,
+        images_path,
+        split,
+        convolve_image,
+        transform=None,
+        target_transform=None,
+        keep_difficult=False,
+        is_train=True,
+        data_aug=None,
+    ):
 
         self.data_dir = data_dir
         self.split = split
@@ -20,7 +31,7 @@ class ImageDataset(torch.utils.data.Dataset):
         self.ids, self.labels = ImageDataset._read_image_ids(image_sets_file)
         # self.class_names = open(os.path.join(dir_path, "imagenet-classes.txt"), 'r')
         # self.class_dict = {class_name: i for i, class_name in enumerate(self.class_names)}
-        
+
         self.convolve_image = convolve_image
 
         self.DATA_AUG = data_aug
@@ -43,7 +54,7 @@ class ImageDataset(torch.utils.data.Dataset):
     def __len__(self):
         return len(self.ids)
 
-    @ staticmethod
+    @staticmethod
     def _read_image_ids(image_sets_file):
         ids = []
         labels = []
@@ -51,7 +62,7 @@ class ImageDataset(torch.utils.data.Dataset):
             for line in f:
                 L = line.rstrip()
                 L_ = L.split(" ")
-                img_name = ' '.join(L_[:-1])
+                img_name = " ".join(L_[:-1])
                 ids.append(img_name)
                 labels.append(int(L_[-1]))
 
@@ -59,7 +70,7 @@ class ImageDataset(torch.utils.data.Dataset):
 
     def _read_image(self, image_id):
 
-        image_path = os.path.join(dir_path, '../../../', self.data_dir, image_id)
+        image_path = os.path.join(dir_path, "../../../", self.data_dir, image_id)
         image = Image.open(image_path).convert("RGB")
         image = np.array(image)
         return image

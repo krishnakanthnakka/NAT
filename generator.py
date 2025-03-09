@@ -111,20 +111,18 @@ class StableGeneratorResnet(nn.Module):
 
     def forward(self, input):
 
-        #logger.info(f"Input: {torch.mean(input)}")
+        # logger.info(f"Input: {torch.mean(input)}")
 
         x = self.block1(input)
 
-        #logger.info(f"block1: {torch.mean(x)}")
-
+        # logger.info(f"block1: {torch.mean(x)}")
 
         x = self.block2(x)
 
-        #logger.info(f"block2: {torch.mean(x)}")
+        # logger.info(f"block2: {torch.mean(x)}")
 
         x = self.block3(x)
-        #logger.info(f"block3: {torch.mean(x)}")
-
+        # logger.info(f"block3: {torch.mean(x)}")
 
         x = self.resblock1(x)
         x = self.resblock2(x)
@@ -132,7 +130,7 @@ class StableGeneratorResnet(nn.Module):
         x = self.resblock4(x)
         x = self.resblock5(x)
         x = self.resblock6(x)
-        #logger.info(f"block6: {torch.mean(x)}")
+        # logger.info(f"block6: {torch.mean(x)}")
 
         # x = self.resblock7(x)
         # x = self.resblock8(x)
@@ -140,7 +138,7 @@ class StableGeneratorResnet(nn.Module):
         x = self.upsampl1(x)
         x = self.upsampl2(x)
 
-        #logger.info(f"upsample2: {torch.mean(x)}")
+        # logger.info(f"upsample2: {torch.mean(x)}")
 
         x = self.blockf(x)
 
@@ -169,11 +167,7 @@ class ResidualBlock(nn.Module):
             nn.ReLU(True),
             # CHANGED
             # if gen_dropout > 0.01:
-
-
             nn.Dropout(gen_dropout),
-            
-
             # nn.ReflectionPad2d(1),
             nn.Conv2d(
                 in_channels=num_filters,

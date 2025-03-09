@@ -37,7 +37,7 @@ source envs.sh
     python eval.py --nat_attacked_neuron 250
     ```
 
-- Please refer to the Table XX in the supplementary for the exact versions of the target models.
+- Please refer to the Table 1 in the [supplementary](https://openaccess.thecvf.com/content/WACV2025/supplemental/Nakka_NAT_Learning_to_WACV_2025_supplemental.pdf) for the exact versions of the target models.
 
 ### Training
 

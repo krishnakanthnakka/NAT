@@ -23,13 +23,13 @@ source envs.sh
 
 ## Dataset
 
-- For evaluation, we use subset of 5000 images available at the [data](data/imagenet_val5k.txt) subfolder. This subset is taken from the LTP paper of NeurIPS 2021.
+- For evaluation, we use subset of 5000 images available at the [data](data/imagenet_val5k.txt) subfolder. This subset is taken from the [LTP](https://github.com/krishnakanthnakka/Transferable_Perturbations) paper of NeurIPS 2021.
 
 
 ### Evaluation
 
 
-- We provided the checkpoint for Neuron 250 along with this repo in the releases section. This should reproduce the results of Table 2, 3 and 4 in the main paper with query k=1. 
+- We provided the checkpoint for Neuron 250 along with this repo in the releases section. This should reproduce the results of Table 2, 3 and 4 in the main paper with query `k=1`. 
 
 - To run the attack on resnet152, please run the following command,
 
@@ -37,13 +37,14 @@ source envs.sh
     python eval.py --nat_attacked_neuron 250
     ```
 
-- Please refer to the Table 1 in the [supplementary](https://openaccess.thecvf.com/content/WACV2025/supplemental/Nakka_NAT_Learning_to_WACV_2025_supplemental.pdf) for the exact versions of the target models.
+- Please refer to the Table 1 in the [supplementary](https://openaccess.thecvf.com/content/WACV2025/supplemental/Nakka_NAT_Learning_to_WACV_2025_supplemental.pdf) for the exact versions of the target models. 
+
 
 ### Training
 
 - For training, we use the [LTP](https://github.com/krishnakanthnakka/Transferable_Perturbations) repository available and change the loss function to choose the single channel instead of all channels. The modified loss function is available in the file [loss.py](loss.py)
 
--  For generator, we used a slightly modified architecture removing `reflectionpad` as we found that to be make results non-deterministic even with same seeds.
+-  For `generator`, we used a slightly modified architecture removing `reflectionpad` as we found that to be make results non-deterministic even with same seed.
 
 
 ### Citation
@@ -58,3 +59,7 @@ source envs.sh
     pages     = {7582-7593}
 }
 ```
+
+### Acknowledgements
+
+- I would like thank the authors of [CDA](https://arxiv.org/abs/1905.11736) who inspired me to work in this direction during my PhD. 

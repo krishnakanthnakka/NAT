@@ -2,10 +2,7 @@ import torch
 import torch.nn.functional as F
 import numpy as np
 import torch.nn as nn
-import logging 
-
-
-
+import logging
 
 
 def feat_loss_multiscale_fn(

@@ -14,7 +14,6 @@ def parse_args(antiburst=False, nv_pca=None, wpca=False, num_pcs=8192):
     parser.add_argument(
         "--dataset_name", type=str, default="gsv_cities", help="Dataset"
     )
-   
 
     args = parser.parse_args()
 
@@ -32,21 +31,15 @@ def parse_args(antiburst=False, nv_pca=None, wpca=False, num_pcs=8192):
     return args
 
 
-def generator(
-    neuron = 250,
-    layer = 18,
-    source_model = "vgg16"
-) -> torch.nn.Module:
-    
+def generator(neuron=250, layer=18, source_model="vgg16") -> torch.nn.Module:
 
     model = StableGeneratorResnet(gen_dropout=0.0, data_dim="high")
-    
+
     checkpoint = torch.hub.load_state_dict_from_url(
         f"https://github.com/krishnakanthnakka/NAT/releases/download/checkpoint_neuron_250/0_net_G_neuron.{neuron}.pth"
     )
 
-
     model_state_dict = model.state_dict()
     model.load_state_dict(checkpoint["model_state_dict"])
-    
+
     return model

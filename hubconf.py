@@ -34,7 +34,7 @@ def parse_args(antiburst=False, nv_pca=None, wpca=False, num_pcs=8192):
 
 def generator(
     neuron = 250,
-    layer = 18
+    layer = 18,
     source_model = "vgg16"
 ) -> torch.nn.Module:
     

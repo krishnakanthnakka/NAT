@@ -75,4 +75,4 @@ generator.cuda()
 
 ### Acknowledgements
 
-- I would like thank the authors of [CDA](https://arxiv.org/abs/1905.11736) who inspired me to work in this direction during my PhD around 2021.  
+- We would like thank the authors of [CDA](https://arxiv.org/abs/1905.11736) who inspired me to work in this direction and for releasing their codebase opensource.

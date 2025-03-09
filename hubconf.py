@@ -38,9 +38,6 @@ def generator(
     source_model = "vgg16"
 ) -> torch.nn.Module:
     
-    args = parse_args(antiburst=antiburst, nv_pca=nv_pca, wpca=wpca, num_pcs=num_pcs)
-
-    assert args.layer == 18
 
     model = StableGeneratorResnet(gen_dropout=0.0, data_dim="high")
     

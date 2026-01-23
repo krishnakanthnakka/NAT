@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="images/logo.png" width="25%"/>
+  <img src="images/logo.png" width="5%"/>
 </p>
 
 <div align="center">
@@ -11,7 +11,7 @@
 
 </div>
 
-# $\color{orange}{\textbf{{[WACV 2025]}}}$ NAT: Learning to Attack Neurons for Enhanced Adversarial Transferability 
+# ${\textbf{{[WACV 2025]}}}$ NAT: Learning to Attack Neurons for Enhanced Adversarial Transferability 
 #### [`Krishna Kanth Nakka`](https://krishnakanthnakka.github.io/) and [`Alexandre Alahi`](https://www.epfl.ch/labs/vita/people/alahi/)
 
 ![Method](images/teaser_v1.png)

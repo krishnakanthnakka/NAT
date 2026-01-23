@@ -1,9 +1,15 @@
 # NAT: Learning to Attack Neurons for Enhanced Adversarial Transferability (WACV 2025)
+
 Krishna Kanth Nakka and Alexandre Alahi
 
-
+**Hugging Face:** [https://huggingface.co/KKNakka/NAT](https://huggingface.co/KKNakka/NAT)
 
 ![Method](images/teaser_v1.png)
+
+## News
+- [March 2025]: Released best performing generator.
+- [Jan 2026]: Released 40 pretrained generators on HuggingFace
+
 
 
 
@@ -26,7 +32,7 @@ conda env create -f environment.yaml
 - For evaluation, we use subset of 5000 images available at the [data](data/imagenet_val5k.txt) subfolder. This subset is taken from the [LTP](https://github.com/krishnakanthnakka/Transferable_Perturbations) paper of NeurIPS 2021.
 
 
-### Trained Model
+### Trained Models
 
  - You can easily load and test our generator model attacking `Neuron 250` in layer 18 of `VGG16` via Torch Hub with just a few lines of code:
 
@@ -37,6 +43,8 @@ generator.eval()
 generator.cuda()
 ```
 
+
+- [NEW] ;We also release all trained 40 generators at Huggingface: https://huggingface.co/KKNakka/NAT
 
 
 ### Evaluation

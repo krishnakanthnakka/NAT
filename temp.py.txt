@@ -1,0 +1,9 @@
+import torch
+from huggingface_hub import hf_hub_download
+
+# 1. Define your repository and the specific filename
+repo_id = "KKNakka/NAT"
+filename = "0_net_G_neuron=109.pth"
+
+# 2. Download the file (returns the local path)
+local_model_path = hf_hub_download(repo_id=repo_id, filename=filename)

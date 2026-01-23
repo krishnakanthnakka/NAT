@@ -65,7 +65,7 @@ conda env create -f environment.yaml
     # ----------------------------------------------------------------
 
     repo_id = "KKNakka/NAT"
-    filename = "0_net_G_neuron=109.pth"
+    filename = "0_net_G_neuron=250.pth"
 
     # 2. Download to a specific local directory
     local_model_path = hf_hub_download(

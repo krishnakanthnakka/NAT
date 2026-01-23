@@ -11,8 +11,8 @@
 
 </div>
 
-# ${\textbf{{[WACV 2025]}}}$ NAT: Learning to Attack Neurons for Enhanced Adversarial Transferability 
-#### [`Krishna Kanth Nakka`](https://krishnakanthnakka.github.io/) and [`Alexandre Alahi`](https://www.epfl.ch/labs/vita/people/alahi/)
+# NAT: Learning to Attack Neurons for Enhanced Adversarial Transferability, WACV 2025 
+#### [`Krishna Kanth Nakka`](https://krishnakanthnakka.github.io/) and [`Alexandre Alahi`](https://scholar.google.com/citations?user=UIhXQ64AAAAJ&hl=en)
 
 ![Method](images/teaser_v1.png)
 

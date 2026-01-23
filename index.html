@@ -4,387 +4,276 @@
 <head>
   <meta charset="utf-8">
   <meta name="description" content="NAT: Learning to Attack Neurons for Enhanced Adversarial Transferability">
-  <meta name="keywords" content="multimodal chatbot">
+  <meta name="keywords" content="Adversarial Transferability, Deep Learning, WACV 2025">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>NAT</title>
+  <title>NAT: Learning to Attack Neurons</title>
 
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-  <link rel="stylesheet" href="./static/css/index.css">
   <link rel="icon" href="images/neuron_icon.png">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
+  <script>
+    window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js"></script>
-  <script type="module" src="https://gradio.s3-us-west-2.amazonaws.com/3.27.0/gradio.js"></script>
+  <style>
+    .section { margin-bottom: -10px; }
+    .publication-title { font-family: 'Google Sans', sans-serif; }
+    .author-block { display: inline-block; margin-right: 15px; }
+    .final-logo { padding: 3rem 0; }
+    pre { background-color: #f5f5f5; padding: 1.25rem; border-radius: 4px; }
+    .hero.teaser .hero-body { padding-top: 0; }
+  </style>
 </head>
-
-<style>
-    .section {
-    margin-bottom: -30px; /* Adjust this value as needed to reduce the space */
-  }
-  .expandable-card .card-text-container {
-    max-height: 200px;
-    overflow-y: hidden;
-    position: relative;
-  }
-
-  .expandable-card.expanded .card-text-container {
-    max-height: none;
-  }
-
-  .expand-btn {
-    position: relative;
-    display: none;
-    background-color: rgba(255, 255, 255, 0.8);
-    /* margin-top: -20px; */
-    /* justify-content: center; */
-    color: #510c75;
-    border-color: transparent;
-  }
-
-  .expand-btn:hover {
-    background-color: rgba(200, 200, 200, 0.8);
-    text-decoration: none;
-    border-color: transparent;
-    color: #510c75;
-  }
-
-  .expand-btn:focus {
-    outline: none;
-    text-decoration: none;
-  }
-
-  .expandable-card:not(.expanded) .card-text-container:after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 90px;
-    background: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 1));
-  }
-
-  .expandable-card:not(.expanded) .expand-btn {
-    margin-top: -40px;
-  }
-
-  .card-body {
-    padding-bottom: 5px;
-  }
-
-  .vertical-flex-layout {
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-  }
-
-  .figure-img {
-    max-width: 100%;
-    height: auto;
-  }
-
-  .adjustable-font-size {
-    font-size: calc(0.5rem + 2vw);
-  }
-
-  .chat-history {
-    flex-grow: 1;
-    overflow-y: auto;
-    /* overflow-x: hidden; */
-    padding: 5px;
-    border-bottom: 1px solid #ccc;
-    margin-bottom: 10px;
-  }
-
-  #gradio pre {
-    background-color: transparent;
-  }
-</style>
-
 
 <body>
 
-<section class="hero">
-  <div class="hero-body">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered">
-        <div class="column has-text-centered">
-          <img src="images/neuron_icon.png" alt="NAT Logo" width="100" style="margin-bottom: 1rem;">
-          
-          <h1 class="title is-1 publication-title">
-            <span style="font-weight: 800;">NAT:</span> 
-            <span class="is-size-2">
-              <span class="is-size-1">L</span>earning to <span class="is-size-1">A</span>ttack <span class="is-size-1">N</span>eurons for <span class="is-size-1">E</span>nhanced <span class="is-size-1">A</span>dversarial <span class="is-size-1">T</span>ransferability
-            </span>
-            <br>
-            <span class="is-size-4" style="color: #5a5a5a;">WACV 2025</span>
-          </h1>
-
-          <div class="is-size-5 publication-authors">
-            <span class="author-block">
-              <a href="https://scholar.google.com/citations?hl=en&user=g_21RKoAAAAJ" target="_blank" style="color:#f68946;">Krishna Kanth Nakka</a>,
-            </span>
-            <span class="author-block">
-              <a href="https://scholar.google.com/citations?hl=en&user=UIhXQ64AAAAJ" target="_blank" style="color:#008AD7;">Alexandre Alahi</a>
-            </span>
-          </div>
-
-          <div class="is-size-5 publication-authors mb-4">
-            <span class="author-block">VITA Lab, EPFL, Switzerland</span>
-          </div>
-
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
           <div class="column has-text-centered">
+            <img src="images/neuron_icon.png" alt="NAT Logo" width="100" style="margin-bottom: 1rem;">
+            <h1 class="title is-1 publication-title">
+              <span style="font-weight: 800;">NAT:</span>
+              <span class="is-size-2">
+                <span class="is-size-1">L</span>earning to <span class="is-size-1">A</span>ttack <span class="is-size-1">N</span>eurons for <span class="is-size-1">E</span>nhanced <span class="is-size-1">A</span>dversarial <span class="is-size-1">T</span>ransferability
+              </span>
+              <br>
+              <span class="is-size-4" style="color: #5a5a5a;">WACV 2025</span>
+            </h1>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a href="https://scholar.google.com/citations?hl=en&user=g_21RKoAAAAJ" target="_blank" style="color:#f68946;">Krishna Kanth Nakka</a>,
+              </span>
+              <span class="author-block">
+                <a href="https://scholar.google.com/citations?hl=en&user=UIhXQ64AAAAJ" target="_blank" style="color:#008AD7;">Alexandre Alahi</a>
+              </span>
+            </div>
+
+            <div class="is-size-5 publication-authors mb-4">
+              <span class="author-block">VITA Lab, EPFL, Switzerland</span>
+            </div>
+
             <div class="publication-links">
-              
               <span class="link-block">
-                <a href="https://arxiv.org/abs/2508.16937" target="_blank" class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                    <i class="ai ai-arxiv"></i>
-                  </span>
+                <a href="https://arxiv.org/abs/2508.16937" target="_blank" class="button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="ai ai-arxiv"></i></span>
                   <span>arXiv</span>
                 </a>
               </span>
-
               <span class="link-block">
-                <a href="https://openaccess.thecvf.com/content/WACV2025/papers/Nakka_NAT_Learning_to_Attack_Neurons_for_Enhanced_Adversarial_Transferability_WACV_2025_paper.pdf" target="_blank" class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                    <i class="fas fa-file-pdf"></i>
-                  </span>
+                <a href="https://openaccess.thecvf.com/content/WACV2025/papers/Nakka_NAT_Learning_to_Attack_Neurons_for_Enhanced_Adversarial_Transferability_WACV_2025_paper.pdf" target="_blank" class="button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fas fa-file-pdf"></i></span>
                   <span>Paper</span>
                 </a>
               </span>
-
               <span class="link-block">
-                <a href="https://openaccess.thecvf.com/content/WACV2025/supplemental/Nakka_NAT_Learning_to_WACV_2025_supplemental.pdf" target="_blank" class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                    <i class="fas fa-file-alt"></i>
-                  </span>
+                <a href="https://openaccess.thecvf.com/content/WACV2025/supplemental/Nakka_NAT_Learning_to_WACV_2025_supplemental.pdf" target="_blank" class="button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fas fa-file-alt"></i></span>
                   <span>Supplementary</span>
                 </a>
               </span>
-
               <span class="link-block">
-                <a href="https://github.com/krishnakanthnakka/NAT.git" target="_blank" class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                    <i class="fab fa-github"></i>
-                  </span>
+                <a href="https://github.com/krishnakanthnakka/NAT.git" target="_blank" class="button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fab fa-github"></i></span>
                   <span>Code</span>
                 </a>
               </span>
-
               <span class="link-block">
-                <a href="https://huggingface.co/KKNakka/NAT" target="_blank" class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                    <span style="font-size: 18px;">🤗</span>
-                  </span>
+                <a href="https://huggingface.co/KKNakka/NAT" target="_blank" class="button is-normal is-rounded is-dark">
+                  <span class="icon"><span>🤗</span></span>
                   <span>Hugging Face</span>
                 </a>
               </span>
-
             </div>
           </div>
-          </div>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
   <section class="hero teaser">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-      <h2 class="title is-3 has-text-centered mb-5">Introduction</h2>
-      
-      <div class="has-text-centered">
-        <img src="./images/teaser_v1.png" alt="NAT Teaser" style="width: 100%; height: auto; max-width: 900px;">
+    <div class="container is-max-desktop">
+      <div class="hero-body">
+        <h2 class="title is-3 has-text-centered mb-5">Introduction</h2>
+        <div class="has-text-centered">
+          <img src="./images/teaser_v1.png" alt="NAT Teaser" style="width: 100%; height: auto; max-width: 900px;">
+        </div>
+        <h2 class="subtitle has-text-justified mt-4" style="line-height: 1.6;">
+          <strong>Figure 1: Comparison of Attack Strategies.</strong> 
+          On the <span style="color: blue; font-weight: bold;">left</span>, we illustrate how prior <strong>single</strong> generator-based methods, such as LTP and BIA, attack the entire embedding but predominantly disrupt neurons related to a single concept (e.g., circular text patterns), while leaving most other neurons largely unaffected. In contrast, our framework on the <span style="color: blue; font-weight: bold;">right</span> trains <strong>multiple</strong> generators to target individual neurons, each representing distinct concepts. By focusing on attacking neurons that represent low-level concepts, our method not only generates highly transferable perturbations but also produces diverse, complementary attack patterns.
+        </h2>
       </div>
-
-      <h2 class="subtitle has-text-justified mt-4" style="line-height: 1.6;">
-        <strong>Figure 1: Comparison of Attack Strategies.</strong> 
-        On the <span style="color: blue; font-weight: bold;">left</span>, we illustrate how prior 
-        <strong>single</strong> generator-based methods, such as LTP and BIA, attack the entire 
-        embedding but predominantly disrupt neurons related to a single concept (e.g., circular 
-        text patterns), leaving other neurons unaffected. In contrast, our 
-        framework on the <span style="color: blue; font-weight: bold;">right</span> trains 
-        <strong>multiple</strong> generators to target individual neurons representing 
-        distinct concepts. This approach generates highly transferable and diverse, 
-        complementary attack patterns. 
-        <span class="is-size-7" style="display: block; text-align: center; margin-top: 10px; color: #7a7a7a;">
-        </span>
-      </h2>
     </div>
-  </div>
-</section>
+  </section>
 
-
-
-  <section class="section"  style="background-color:#efeff081">
-  <div class="container is-max-desktop">
-    <!-- Abstract. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-six-fifths">
-        <h2 class="title is-3">🔥Highlights</h2>
-        <div class="content has-text-justified">
-          <ol type="1">
-            <li><b>NAT Introduction</b>. The generation of transferable adversarial perturbations typically involves training a generator to maximize embedding separation between clean and adversarial images at a single mid-layer of a source model. In this work, we build
-on this approach and introduce Neuron Attack for Transferability (NAT), a method designed to target specific neuron within the embedding. Our approach is motivated by the observation that previous layer-level optimizations often disproportionately focus on a few neurons representing similar concepts, leaving other neurons within the attacked layer minimally affected. NAT shifts the focus from embeddinglevel separation to a more fundamental, neuron-specific approach. We find that targeting individual neurons effectively disrupts the core units of the neural network, providing a common basis for transferability across different models.</li>
+  <section class="section" style="background-color:#efeff081">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-six-fifths">
+          <h2 class="title is-3">🔥 Highlights</h2>
+          <div class="content has-text-justified">
+            <ol type="1">
+              <li><b>NAT Introduction</b>. The generation of transferable adversarial perturbations typically involves training a generator to maximize embedding separation between clean and adversarial images at a single mid-layer of a source model. In this work, we build on this approach and introduce Neuron Attack for Transferability (NAT), a method designed to target specific neurons within the embedding. Our approach is motivated by the observation that previous layer-level optimizations often disproportionately focus on a few neurons representing similar concepts, leaving other neurons within the attacked layer minimally affected. NAT shifts the focus from embedding-level separation to a more fundamental, neuron-specific approach. We find that targeting individual neurons effectively disrupts the core units of the neural network, providing a common basis for transferability across different models.</li>
               <br>
-            <li><b>NAT Framework</b>. NAT train a UNet-based perturbation generator that takes the input images and generate adversarial images in a single forward loss at attacking time. For training generator, NAT relies on L2 separation between the clean and adversarial of a specific neuron (ie., channels) in the feature map. </li>
+              <li><b>NAT Framework</b>. NAT trains a UNet-based perturbation generator that takes input images and generates adversarial images in a single forward pass at attack time. For training the generator, NAT relies on $L_2$ separation between the clean and adversarial versions of a specific neuron (i.e., channels) in the feature map.</li>
               <br>
-            <li><b>Extensive Evaluation</b>.  We conduct a rigorous evaluation on 41 ImageNet-pretrained models, covering 16 traditional Convolutional networks, 8 Transformers architectures, 17 Hybrid architectures. We also
-evaluate the transferability on nine fine-grained dataset models. We demonstrate that a single neuron-specific adversarial generator achieves over 14% improvement in transferability for cross-modal settings and
-4% improvement in cross-domain settings. Additionally, by leveraging the complementary attack capabilities of NAT’s generators, we show that adversarial transferability can be significantly enhanced with fewer than 10 queries to
-the target model.</li>
-          </ol>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-
-<section class="section">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-six-fifths">
-        <h2 class="title is-3">Method Overview</h2>
-        <div class="content has-text-justified">
-          <p>
-            Our NAT framework focuses on training multiple perturbation generators, each targeting a specific neuron within a chosen layer of the source model. During training, each generator learns to maximize the $L_2$ separation between the clean and adversarial images at the targeted neuron level. This neuron-specific approach allows NAT to effectively disrupt distinct concepts represented by individual neurons, leading to the generation of diverse and complementary adversarial patterns. At inference time, these generators can be employed independently or in combination to produce adversarial examples that exhibit high transferability across various target models.
-          </p>
-        </div>
-        
-        <div class="container">
-          <p class="has-text-centered is-size-6 mb-3">
-            <strong>Figure 1:</strong> Overview of the NAT framework for training neuron-specific perturbation generators.
-          </p>
-          <figure class="image">
-            <img src="./images/overview.jpg" alt="Method Overview" style="width: 70%; margin: 0 auto; border-radius: 5px;">
-          </figure>
-        </div>
-        
-      </div>
-    </div>
-  </div>
-</section>
-
-
-
- <section class="section">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-six-fifths">
-        <h2 class="title is-3">📊 Quantitative Results</h2>
-        <div class="content has-text-justified">
-          <p>
-            We present a comprehensive quantitative evaluation of our NAT method against state-of-the-art baselines, LTP and BIA, across a diverse set of 41 ImageNet-pretrained models. Our results demonstrate that NAT significantly outperforms existing methods in terms of adversarial transferability. Specifically, NAT achieves over 14% improvement in transferability for cross-modal settings and 4% improvement in cross-domain settings.
-          </p>
-          
-          <p>
-            <strong>Evaluation in Cross-Domain Setting:</strong> We report the adversarial accuracy (in %) across three fine-grained datasets. We observe that our generators substantially outperform the baseline models in deceiving the target networks in single query $k = 1$ and multi-query $k = 10$ and $k = 40$ settings.
-          </p>
-        </div>
-
-        <div class="columns is-centered">
-          <div class="column">
-            <h3 class="title is-5">Cross-Modal Performance</h3>
-            <figure class="image">
-              <img src="./images/performance_vs_query_smodel_resnet152.png" alt="Cross-Modal Results" style="width: 100%; height: auto;">
-            </figure>
-          </div>
-          <div class="column">
-            <h3 class="title is-5">Cross-Domain Transferability</h3>
-            <figure class="image">
-              <img src="./images/cross_domain.png" alt="Cross Domain Results" style="width: 100%; height: auto;">
-            </figure>
+              <li><b>Extensive Evaluation</b>. We conduct a rigorous evaluation on 41 ImageNet-pretrained models, covering 16 traditional Convolutional networks, 8 Transformer architectures, and 17 Hybrid architectures. We also evaluate the transferability on nine fine-grained dataset models. We demonstrate that a single neuron-specific adversarial generator achieves over 14% improvement in transferability for cross-modal settings and 4% improvement in cross-domain settings. Additionally, by leveraging the complementary attack capabilities of NAT’s generators, we show that adversarial transferability can be significantly enhanced with fewer than 10 queries to the target model.</li>
+            </ol>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
 
-        <div class="columns is-centered mt-5">
-          <div class="column is-four-fifths">
-            <p class="is-size-6 mb-2">
-              <strong>Transferability Heatmap:</strong> Cross-architecture evaluation showing adversarial transferability from our neuron-specific generators (y-axis) across 41 target models (x-axis).
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-six-fifths">
+          <h2 class="title is-3">Method Overview</h2>
+          <div class="content has-text-justified">
+            <p>
+              Our NAT framework focuses on training multiple perturbation generators, each targeting a specific neuron within a chosen layer of the source model. During training, each generator learns to maximize the $L_2$ separation between the clean and adversarial images at the targeted neuron level. This neuron-specific approach allows NAT to effectively disrupt distinct concepts represented by individual neurons, leading to the generation of diverse and complementary adversarial patterns. At inference time, these generators can be employed independently or in combination to produce adversarial examples that exhibit high transferability across various target models.
+            </p>
+          </div>
+          <div class="container mt-5">
+            <p class="has-text-centered is-size-6 mb-3">
+              <strong>Figure 2:</strong> Overview of the NAT framework for training neuron-specific perturbation generators.
             </p>
             <figure class="image">
-              <img src="images/heatmap_all.png" alt="Generator-Model Heatmap" style="width: 70%; margin-left: auto; margin-right: auto;">
+              <img src="./images/overview.jpg" alt="Method Overview" style="width: 70%; margin: 0 auto; border-radius: 5px;">
             </figure>
           </div>
         </div>
-        </div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-six-fifths">
+          <h2 class="title is-3">📊 Quantitative Results</h2>
+          <div class="content has-text-justified">
+            <p>
+              
+              <strong>Evaluation in Cross-Model Setting:</strong> We present a comprehensive quantitative evaluation of our NAT method against state-of-the-art baselines, LTP and BIA, across a diverse set of 41 ImageNet-pretrained models. Specifically, NAT achieves over 14% improvement in transferability for cross-modal settings and 4% improvement in cross-domain settings. 
+            </p>
+            <p>
+              <strong>Evaluation in Cross-Domain Setting:</strong> We report the adversarial accuracy (in %) across three fine-grained datasets. We observe that our generators substantially outperform the baseline models in deceiving the target networks in single query $k = 1$ and multi-query $k = 10$ and $k = 40$ settings.
+            </p>
+          </div>
 
-<section class="section">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-six-fifths">
-        <h2 class="title is-3">🎯 Qualitative Results</h2>
-        <div class="content has-text-justified">
-          <p>
-            We present qualitative comparisons of adversarial examples generated by our NAT method against those produced by state-of-the-art baselines, LTP and BIA. The results highlight the superior transferability of perturbations generated by NAT across various target models, including ConvNeXt, DeiT, and BEiT. Notably, NAT generates perturbations that are more visually diverse and effective in misleading different architectures, demonstrating its robustness and versatility in adversarial attacks.
-          </p>
+          <div class="columns is-centered mt-5">
+            <div class="column">
+              <h3 class="title is-5">Cross-Modal Performance</h3>
+              <img src="./images/performance_vs_query_smodel_resnet152.png" style="width: 100%; height: auto;">
+            </div>
+            <div class="column">
+              <h3 class="title is-5">Cross-Domain Transferability</h3>
+              <img src="./images/cross_domain.png" style="width: 100%; height: auto;">
+            </div>
+          </div>
+
+          <div class="mt-5">
+            <p class="is-size-6 mb-2">
+              <strong>Figure 3: Transferability Heatmap.</strong> Cross-architecture evaluation showing adversarial transferability from our neuron-specific generators (y-axis) across 41 target models (x-axis).
+            </p>
+            <img src="images/heatmap_all.png" alt="Generator-Model Heatmap" style="width: 70%; margin: 0 auto;">
+          </div>
         </div>
-        
-        <div class="container">
-          <figure class="image">
-            <img src="./images/qualitative_v2.jpg" alt="Qualitative Results" style="width: 100%; height: auto; border-radius: 8px;">
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-six-fifths">
+          <h2 class="title is-3">🎯 Qualitative Results</h2>
+          <div class="content has-text-justified">
+            <p>
+              We present qualitative comparisons of adversarial examples generated by our NAT method against those produced by state-of-the-art baselines, LTP and BIA. The results highlight the superior transferability of perturbations generated by NAT across various target models, including ConvNeXt, DeiT, and BEiT. Notably, NAT generates perturbations that are more visually diverse and effective in misleading different architectures, demonstrating its robustness and versatility in adversarial attacks.
+            </p>
+          </div>
+          <figure class="image mt-5">
+            <img src="./images/qualitative_v2.jpg" alt="Qualitative Results" style="width: 100%; border-radius: 8px;">
             <figcaption class="mt-3 is-size-6">
-              <strong>Figure 2: Qualitative Comparison.</strong> These are <b>unbounded</b> adversarial images (i.e., generated without clipping) to visualize the raw perturbations. The specific neuron position targeted within <b>Layer 18</b> is mentioned below each corresponding image. Best viewed in color and zoomed.
+              <strong>Figure 4: Qualitative Comparison.</strong> These are <b>unbounded</b> adversarial images (i.e., generated without clipping) to visualize raw perturbations. The specific neuron position targeted within <b>Layer 18</b> is mentioned below each image. Best viewed in color and zoomed.
             </figcaption>
           </figure>
         </div>
-        
       </div>
     </div>
-  </div>
-</section>
-
-
-
+  </section>
 
   <section class="section" id="BibTeX">
     <div class="container is-max-desktop content">
       <h2 class="title">Citation</h2>
-      <pre><code>
-  @InProceedings{Nakka_2025_WACV,
+      <pre><code>@InProceedings{Nakka_2025_WACV,
     author    = {Nakka, Krishna Kanth and Alahi, Alexandre},
     title     = {NAT: Learning to Attack Neurons for Enhanced Adversarial Transferability},
     booktitle = {Proceedings of the Winter Conference on Applications of Computer Vision (WACV)},
     month     = {February},
     year      = {2025},
     pages     = {7582-7593}
-}
-  </code></pre>
+}</code></pre>
     </div>
   </section>
+
   <section class="section" id="Acknowledgement">
     <div class="container is-max-desktop content">
       <h2 class="title">Acknowledgement</h2>
       <p>
-        This website is adapted from <a
-        href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>, licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
-        Commons Attribution-ShareAlike 4.0 International License</a>.  We are thankful to CDA, BIA for releasing the pretrained models.
+        This website is adapted from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>, licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0 License</a>. We thank CDA and BIA for releasing their pretrained models.
       </p>
     </div>
   </section>
 
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-six-fifths">
+        <h2 class="title is-3">Map of Visitors</h2>
+        <div class="container" style="width: 100%; max-width: 600px; margin: 0 auto;">
+          <script type="text/javascript" id="mapmyvisitors" src="//mapmyvisitors.com/map.js?d=U4slKu92lpNu8_Tr8-EDx0wUR6Or1hv8H12sGkxZoEA&cl=ffffff&w=a"></script>
+          
+          <div class="mt-4">
+            <a href="https://mapmyvisitors.com/web/1c20r" title="Visit tracker">
+              <img src="https://mapmyvisitors.com/map.png?d=U4slKu92lpNu8_Tr8-EDx0wUR6Or1hv8H12sGkxZoEA&cl=ffffff" alt="Visitor Map" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+  <footer class="footer" style="background-color: white; padding-top: 0;">
+    <div class="content has-text-centered">
+      <a href="https://www.epfl.ch/labs/vita/" target="_blank">
+        <img src="images/vita_logo.png" width="200" alt="VITA Logo">
+      </a>
+    </div>
+  </footer>
+
 </body>
-
-
 </html>
-
-<div style="text-align: center;">
-  <a href="https://www.epfl.ch/labs/vita/" target="_blank">
-    <img src="images/vita_logo.png" width="200" height="100" alt="VITA Logo">
-  </a>
-</div>

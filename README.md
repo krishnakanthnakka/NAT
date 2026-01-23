@@ -53,7 +53,7 @@ generator.cuda()
 ```
 
 
-- [NEW] ;We also release all trained 40 generators at Huggingface: https://huggingface.co/KKNakka/NAT
+- [NEW] We also released all trained 40 generators at [Huggingface](https://huggingface.co/KKNakka/NAT)
 
 
 ### Evaluation

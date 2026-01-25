@@ -43,17 +43,8 @@ conda env create -f environment.yaml
 
 ### Trained Models
 
- - You can easily load and test our generator model attacking `Neuron 250` in layer 18 of `VGG16` via Torch Hub with just a few lines of code:
 
-    ```python
-    import torch
-    generator = torch.hub.load("krishnakanthnakka/NAT", "generator", neuron = 250, layer = 18, source_model = "vgg16")
-    generator.eval()
-    generator.cuda()
-    ```
-
-
-- To download from Hugginface
+- To download from Hugginface all pretrained generators
 
 
     ```py

@@ -6,7 +6,7 @@
 
 <a href="https://krishnakanthnakka.github.io/NAT/"><img src="https://img.shields.io/badge/Project-Page-blue?style=for-the-badge&logo=googlechrome&logoColor=white"></a>
 <a href="https://arxiv.org/pdf/2508.16937"><img src="https://img.shields.io/badge/Arxiv-2508.16937-red?style=for-the-badge&logo=arxiv&logoColor=white"></a>
-<a href="https://huggingface.co/KKNakka/NAT"><img src="https://img.shields.io/badge/Hugging%20Face-Model-yellow?style=for-the-badge&logo=huggingface&logoColor=black"></a>
+<a href="https://huggingface.co/KKNakka/NAT"><img src="https://img.shields.io/badge/Hugging%20Face-Models-yellow?style=for-the-badge&logo=huggingface&logoColor=black"></a>
 <a href="https://openaccess.thecvf.com/content/WACV2025/papers/Nakka_NAT_Learning_to_Attack_Neurons_for_Enhanced_Adversarial_Transferability_WACV_2025_paper.pdf"><img src="https://img.shields.io/badge/WACV-2025-blue?style=for-the-badge"></a>
 
 </div>

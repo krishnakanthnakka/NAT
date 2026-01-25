@@ -10,7 +10,7 @@ from dataset import ImageDataset
 from torchvision import models, transforms
 from torch.utils.data import DataLoader
 from generator import StableGeneratorResnet
-
+from huggingface_hub import snapshot_download
 
 
 def get_args():
@@ -83,29 +83,19 @@ def eval(args):
     # load dataloader
     dataset = load_dataset()
     dataloader = DataLoader(dataset, batch_size=16, shuffle=False, num_workers=4)
+    
 
-    if False:
-        generator = (
-            StableGeneratorResnet(gen_dropout=0.0, data_dim="high").cuda().eval()
-        )
+    snapshot_download(
+        repo_id="KKNakka/NAT",
+        local_dir="./checkpoints",
+        local_dir_use_symlinks=False,
+    )
 
-        weights = torch.load(
-            f"./checkpoints/0_net_G_neuron={args.nat_attacked_neuron}.pth"
-        )
-        generator.load_state_dict(weights["model_state_dict"])
 
-    else:
-
-        # load from torch hub
-        generator = torch.hub.load(
-            "krishnakanthnakka/NAT",
-            "generator",
-            neuron=args.nat_attacked_neuron,
-            layer=18,
-            source_model="vgg16",
-            force_reload=False,
-        )
-        generator = generator.cuda().eval()
+    generator = torch.load(
+            f"./checkpoints/0_net_G_neuron={args.nat_attacked_neuron}.pth",
+         )
+    generator = generator.cuda().eval()
 
     total = 0
     fooled = 0

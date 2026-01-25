@@ -74,7 +74,7 @@ conda env create -f environment.yaml
 ### Evaluation
 
 
-- WWe have provided the checkpoint for `Neuron 250` along with this repository in the releases section. This checkpoint should reproduce the results presented in `Tables 2`, `3`, and `4` of the main paper using the query `k=1`.
+- To reproduce the results presented in `Tables 2`, `3`, and `4` of the main paper using the query `k=1`, use the checkpoint with neuron=250
 
 - To run the attack on `ResNet152`, use the following command:
 

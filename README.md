@@ -108,3 +108,11 @@ conda env create -f environment.yaml
 ### Acknowledgements
 
 - We would like thank the authors of [CDA](https://arxiv.org/abs/1905.11736) who inspired me to work in this direction and for releasing their codebase opensource.
+
+
+
+<p align="center">
+  <em> ❤️ Thanks for visiting ✨ NAT!</em><br><br>
+  <img src="https://visitor-badge.laobi.icu/badge?page_id=krishnakanthnakka.NAT&style=for-the-badge&color=00d4ff"
+  alt="Views">
+</p>
